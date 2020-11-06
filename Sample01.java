@@ -13,95 +13,114 @@ public class Sample01 {
 	String name;
 	int videoCode;
 	int checknum=1;
-	
-	
+
+
 	public Sample01() {
 		video.add(v);
+		data();
+		personinput();
+	}
+	
+	private void data() {
 		data1();
 		data2();
-		personinput();
+		date3();		
+	}
+
+	private void date3() {
+		rent.add(1111);
 	}
 	public void data1() {
 		video.add(new Video());
 		video.get(0).setvCode(1111);
-		video.get(0).setvName("Å¸ÀÌÅ¸´Ğ");
+		video.get(0).setvName("íƒ€ì´íƒ€ë‹‰");
 		video.get(0).setvMoney(3000);
 		video.add(new Video());
 		video.get(1).setvCode(2222);
-		video.get(1).setvName("·Î¹Ì¿À¿Í ÁÙ¸®¿§");
+		video.get(1).setvName("ë¡œë¯¸ì˜¤ì™€ ì¤„ë¦¬ì—£");
 		video.get(1).setvMoney(2000);
 		video.add(new Video());
 		video.get(2).setvCode(3333);
-		video.get(2).setvName("½Å°úÇÔ²²");
+		video.get(2).setvName("ì‹ ê³¼í•¨ê»˜");
 		video.get(2).setvMoney(4000);
 		video.add(new Video());
 		video.get(3).setvCode(4444);
-		video.get(3).setvName("¾ÆÀú¾¾");
+		video.get(3).setvName("ì•„ì €ì”¨");
 		video.get(3).setvMoney(4000);
 		video.add(new Video());
 		video.get(4).setvCode(5555);
-		video.get(4).setvName("¾Æ°¡¾¾");
+		video.get(4).setvName("ì•„ê°€ì”¨");
 		video.get(4).setvMoney(2000);
 
 	}
 
 	public void data2() {
 		p[0]= new Person();
-		p[0].setpName("±èÀçÇö");
+		p[0].setpName("ê¹€ì¬í˜„");
 		p[0].setPvName(video.get(0).getvName());
 		p[0].setpMoney(video.get(0).getvMoney());
 	}
 
 	public void personinput() {
-		exit:
+
 		while(true) {
 			String answer;
 			System.out.println(" ");
-			System.out.print("°í°´Á¤º¸ ÀÔ·Â : ");
+			System.out.print("ê³ ê°ì •ë³´ ì…ë ¥ : ");
 			name = in.next();
 			for (int i = 0; i < p.length; i++) {
 				if (!name.equals(p[i].getpName())) {
 					videoinput();
 				}
 				else if (name.equals(p[i].getpName())) {
-					System.out.println("¿¬Ã¼µÈ ºñµğ¿À ÀÌ¸§ : " + p[i].getPvName());
-					System.out.println("¿¬Ã¼±İ : " + p[i].getpMoney());
+					System.out.println("ì—°ì²´ëœ ë¹„ë””ì˜¤ ì´ë¦„ : " + p[i].getPvName());
+					System.out.println("ì—°ì²´ê¸ˆ : " + p[i].getpMoney());
 					System.out.println(" ");
-					System.out.print("¿¬Ã¼±İÀ» ÁöºÒÇÏ½Ã°Ú½À´Ï±î?(³×/¾Æ´Ï¿À) : ");
+					System.out.print("ì—°ì²´ê¸ˆì„ ì§€ë¶ˆí•˜ì‹œê² ìŠµë‹ˆê¹Œ?(ë„¤/ì•„ë‹ˆì˜¤) : ");
 					answer = in.next();
 
-					if (answer.equals("³×")) {
-						System.out.println("ÁöºÒµÇ¾ú½À´Ï´Ù");
-						break exit;
+					if (answer.equals("ë„¤")) {
+						System.out.println("ì§€ë¶ˆë˜ì—ˆìŠµë‹ˆë‹¤");
+						videoinput();
 					}
-					
-					else if (answer.equals("¾Æ´Ï¿À")) {
-						System.out.println("¹Ì³³µÇ¾ú½À´Ï´Ù.");
-						System.out.println(p[i].getpName()+"´ÔÀº ´ë¿©°¡ ºÒ°¡´ÉÇÕ´Ï´Ù");
+
+					else if (answer.equals("ì•„ë‹ˆì˜¤")) {
+						System.out.println("ë¯¸ë‚©ë˜ì—ˆìŠµë‹ˆë‹¤.");
+						System.out.println(p[i].getpName()+"ë‹˜ì€ ëŒ€ì—¬ê°€ ë¶ˆê°€ëŠ¥í•©ë‹ˆë‹¤");
 						personinput();
 					}
 				}  
 			}
 		}//while(true)
-		
-		System.out.println("³ª");
+
 
 	}
 	public void videoinput() {
 
 		System.out.println(" ");
-		System.out.println("´ë¿©ÇÒ ºñµğ¿ÀÄÚµå : ");
+		System.out.println("ëŒ€ì—¬í•  ë¹„ë””ì˜¤ì½”ë“œ : ");
 		videoCode = in.nextInt();
-		for (int i = 0; i < p.length; i++) {
-			if (rent.get(i)== videoCode) {
-				System.out.println("´Ù¸¥ °í°´´Ô²²¼­ ´ë¿©ÇÏ¼Ì½À´Ï´Ù. ´Ù¸¥ ºñµğ¿ÀÄÚµå¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");
-			}
+		for (int i = 0; i < rent.size(); i++) 
+		{			
 			if (videoCode==video.get(i).vCode) {
-				System.out.println(video.get(i).getvName()+ "ÀÌ ´ë¿©µÇ¾ú½À´Ï´Ù");
-				System.out.println(" ");
-				rent.add(videoCode);
-				personinput();
+				if (rent.get(i)!= videoCode) {
+					System.out.println(video.get(i).getvName()+ "ì´ ëŒ€ì—¬ë˜ì—ˆìŠµë‹ˆë‹¤");
+					System.out.println(" ");
+					rent.add(videoCode);
+					personinput();
+				}
+				
+				else if (rent.get(i)== videoCode) {
+					System.out.println("ë‹¤ë¥¸ ê³ ê°ë‹˜ê»˜ì„œ ëŒ€ì—¬í•˜ì…¨ìŠµë‹ˆë‹¤. ë‹¤ë¥¸ ë¹„ë””ì˜¤ì½”ë“œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”");
+					videoinput();
+				
 			}
+				
+			}
+
 		}
+
 	}
 }
+
+
